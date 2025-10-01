@@ -30,3 +30,6 @@ def criar_objeto_movimentacao(data, valor_total):
         "quantidade": data["quantidade"],
         "valor_movimentacao": valor_total
     }
+
+
+
