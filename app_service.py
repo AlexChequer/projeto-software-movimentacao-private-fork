@@ -1,4 +1,5 @@
 import requests
+import os
 
 def validar_campos(data):
     campos_obrigatorios = ["cpf_comprador", "cpf_vendedor", "ticker", "quantidade"]
@@ -8,7 +9,8 @@ def validar_campos(data):
     return None
 
 def calcular_valor(ticker, quantidade):
-    url = f"http://stocks:8080/stocks/{ticker}"
+    link_stocks = os.environ.get("STOCKS_LINK")
+    url = f"{link_stocks}/{ticker}"
     try:
         resp = requests.get(url, timeout=5)
         if resp.status_code != 200:
